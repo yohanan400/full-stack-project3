@@ -1,0 +1,113 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 50px;
+}
+
+.form {
+	border: 1px solid #ccc;
+	padding: 20px;
+	max-width: 400px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.form h2 {
+	margin-top: 0;
+}
+
+.form label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+.form input[type="text"],
+.form input[type="password"] {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+
+.form button[type="button"] {
+	display: block;
+	margin-top: 10px;
+	padding: 10px;
+	width: 100%;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.form button[type="button"]:hover {
+	background-color: #3e8e41;
+}
+
+.todo-list {
+	border: 1px solid #ccc;
+	padding: 20px;
+	max-width: 400px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.todo-list h2 {
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+.todo-list ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+.todo-list li {
+	padding: 10px;
+	margin-bottom: 5px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.todo-list li:hover {
+	background-color: #f2f2f2;
+}
+
+.todo-list .add-todo {
+	margin-top: 10px;
+	display: flex;
+	align-items: center;
+}
+
+.todo-list input[type="text"] {
+	flex-grow: 1;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+
+.todo-list button[type="submit"] {
+	margin-left: 10px;
+	padding: 10px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.todo-list button[type="submit"]:hover {
+	background-color: #3e8e41;
+}
+
+.todo-list .error {
+	color: red;
+	margin-top: 5px;
+}

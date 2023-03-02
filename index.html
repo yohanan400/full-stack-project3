@@ -1,12 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<meta charset="UTF-8">
+	<title>Login/Register</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="db_api.js"></script>
+	<script src="server.js"></script>
+	<script src="network.js"></script>
+	<script src="FXMLHttpRequest.js"></script>
 </head>
 <body>
-    
+	<div class="container">
+		<div id="login" class="form">
+			<h2>Login</h2>
+			<form>
+				<label for="username">Username:</label>
+				<input type="text" id="username" name="username" required><br><br>
+				<label for="password">Password:</label>
+				<input type="password" id="password" name="password" required><br><br>
+				<button type="button" onclick="login()">Login</button>
+			</form>
+			<div>
+				<button type="button" onclick="showRegister()">Register</button>
+			</div>
+		</div>
+
+		<div id="register" class="form" style="display: none;">
+			<h2>Register</h2>
+			<form>
+				<label for="username">Username:</label>
+				<input type="text" id="username" name="username" required><br><br>
+				<label for="password">Password:</label>
+				<input type="password" id="password" name="password" required><br><br>
+				<button type="button" onclick="register()">Register</button>
+			</form>
+			<div>
+				<button type="button" onclick="showLogin()">Login</button>
+			</div>
+		</div>
+
+		<div id="todo" style="display: none;">
+			<h2>Todo List</h2>
+			<ul id="todoList">
+				<li>Item 1</li>
+				<li>Item 2</li>
+				<li>Item 3</li>
+			</ul>
+		</div>
+	</div>
+
+	<script>
+		var loginForm = document.getElementById("login");
+		var registerForm = document.getElementById("register");
+		var todo = document.getElementById("todo");
+
+		function showRegister() {
+			loginForm.style.display = "none";
+			registerForm.style.display = "block";
+		}
+
+		function showLogin() {
+			loginForm.style.display = "block";
+			registerForm.style.display = "none";
+			todo.style.display = "none";
+		}
+
+		function register() {
+			// Code to handle registration request
+			alert("Registration request sent");
+
+			// Show the login form
+			showLogin();
+			alert("Registration successful, please login.");
+		}
+
+		function login() {
+			// Code to handle login request
+			alert("Login request sent");
+
+			// Show the todo list
+			loginForm.style.display = "none";
+			todo.style.display = "block";
+		}
+	</script>
 </body>
 </html>

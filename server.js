@@ -4,9 +4,9 @@ class server{
     }
 
     prossess_data(data, dispatcher = (x) => {}){
-        recivedData = JSON.parse(data);
+        var recivedData = JSON.parse(data);
         
-        if(recivedData["data"].method === 'GET'){
+        if(recivedData["d"]["method"] === 'GET'){
             if(recivedData["body"] == "usernames"){
                 dispatcher(get_username_list());
             } 
@@ -17,23 +17,23 @@ class server{
                 dispatcher(get_task(recivedData["body"].username, recivedData["body"].title));
             }
         } 
-        else if(recivedData["data"].method === 'POST' ){
+        else if(recivedData["d"].method === 'POST' ){
             if (recivedData["body"].username) {
-                add_user(recivedData["body"].username, recivedData["body"].password);
+                this.add_user(recivedData["body"].username, recivedData["body"].password);
             } 
             else {
-                add_task(recivedData["body"].username, recivedData["body"].title, recivedData["body"].task);
+                this.add_task(recivedData["body"].username, recivedData["body"].title, recivedData["body"].task);
             }
             //dispatch the event
             dispatcher();
         } 
-        else if(recivedData["data"].method === 'PUT'){
-            update_task(recivedData["body"].username, recivedData["body"].title, recivedData["body"].new_content);
+        else if(recivedData["d"].method === 'PUT'){
+            this.update_task(recivedData["body"].username, recivedData["body"].title, recivedData["body"].new_content);
             //dispatch the event
             dispatcher();
         }
-        else if(recivedData["data"].method == 'DELETE'){
-            delete_task(recivedData["body"].username, recivedData["body"].title);
+        else if(recivedData["d"].method == 'DELETE'){
+            this.delete_task(recivedData["body"].username, recivedData["body"].title);
             //dispatch the event
             dispatcher();
         }

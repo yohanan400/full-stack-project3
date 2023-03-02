@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="UTF-8">
 	<title>Login/Register</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="register.js"></script>
 	<script src="db_api.js"></script>
 	<script src="server.js"></script>
 	<script src="network.js"></script>
 	<script src="FXMLHttpRequest.js"></script>
 </head>
+
 <body>
 	<div class="container">
 		<div id="login" class="form">
 			<h2>Login</h2>
 			<form>
-				<label for="username">Username:</label>
-				<input type="text" id="username" name="username" required><br><br>
-				<label for="password">Password:</label>
-				<input type="password" id="password" name="password" required><br><br>
+				<label for="lUsername">Username:</label>
+				<input type="text" id="lUsername" name="username" required><br><br>
+				<label for="lPassword">Password:</label>
+				<input type="password" id="lPassword" name="password" required><br><br>
 				<button type="button" onclick="login()">Login</button>
 			</form>
 			<div>
@@ -28,10 +31,10 @@
 		<div id="register" class="form" style="display: none;">
 			<h2>Register</h2>
 			<form>
-				<label for="username">Username:</label>
-				<input type="text" id="username" name="username" required><br><br>
-				<label for="password">Password:</label>
-				<input type="password" id="password" name="password" required><br><br>
+				<label for="rUsername">Username:</label>
+				<input type="text" id="rUsername" name="username" required><br><br>
+				<label for="lPassword">Password:</label>
+				<input type="password" id="rPassword" name="password" required><br><br>
 				<button type="button" onclick="register()">Register</button>
 			</form>
 			<div>
@@ -65,14 +68,7 @@
 			todo.style.display = "none";
 		}
 
-		function register() {
-			// Code to handle registration request
-			alert("Registration request sent");
-
-			// Show the login form
-			showLogin();
-			alert("Registration successful, please login.");
-		}
+		
 
 		function login() {
 			// Code to handle login request
@@ -84,4 +80,5 @@
 		}
 	</script>
 </body>
+
 </html>

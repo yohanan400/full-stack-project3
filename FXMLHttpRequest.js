@@ -1,4 +1,4 @@
-class FXMLHttpRequest{
+class FXMLHttpRequest {
     //fields
     readyState;
     response;
@@ -11,8 +11,8 @@ class FXMLHttpRequest{
     timeout;
     upload;
     withCredentials;
-    #data;
-    
+    data = {};
+
     // events
     abord = new Event("abord");
     error = new Event("error");
@@ -28,65 +28,61 @@ class FXMLHttpRequest{
 
 
     // methods
-    constructor(){
+    constructor() {
     }
 
-    abort(){
+    abort() {
         // TODO: abord the task
         readyState = this.UNSENT;
         this.status = 0;
     }
 
-    getAllResponseHeaders(){
+    getAllResponseHeaders() {
         text = JSON.parse(responseText);
         return Object.keys(text);
     }
 
     // recieve header name and return his value from the response string if exist
     // else, return null.
-    getResponseHeader(headerName){
+    getResponseHeader(headerName) {
         text = JSON.parse(responseText);
         result = text[headerName];
 
-        if (result == "" || result == null){
+        if (result == "" || result == null) {
             return null;
         }
-        else{
+        else {
             return result;
         }
     }
 
-    open(mathod, url, isAsinc = true, user = null, password = null){
-        data = {
-            "mathod" : mathod,
-            "url" : url,
-            "isAsinc" : isAsinc,
-            "user" : user,
-            "password" : password
+    open(method, url, isAsync = true, user = null, password = null) {
+        this.data = {
+            "method": method,
+            "url": url,
+            "isAsinc": isAsync,
+            "user": user,
+            "password": password
         };
     }
 
-    overrideMimeType(mimeType = "text/xml"){
+    overrideMimeType(mimeType = "text/xml") {
         this.responseType = mimeType;
     }
 
-    send(body= ""){
+    send(body = "", func = () => { }) {
         //TODO: send the request via network class
         let net = new network();
-        if(data["isAsinc"]){
-        net.send_to_server_async(JSON.stringify({data, body}), loadDispatcher);
+        const d = this.data
+        if (this.data["isAsinc"]) {
+            net.send_to_server_async(JSON.stringify({ d, body }), func);
         }
-        else{
-            net.send_to_server(JSON.stringify({data, body}));
+        else {
+            net.send_to_server(JSON.stringify({ d, body }));
         }
     }
 
-    setRequestHeader(){
+    setRequestHeader() {
 
     }
-
-    loadDispatcher(){
-        dispatchEvent("load");
-    }
-
 }

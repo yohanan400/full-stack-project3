@@ -81,8 +81,4 @@ class FXMLHttpRequest {
             net.send_to_server(JSON.stringify({ d, body }));
         }
     }
-
-    setRequestHeader() {
-
-    }
 }

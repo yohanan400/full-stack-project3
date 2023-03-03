@@ -8,13 +8,13 @@ class server{
         
         if(recivedData["d"]["method"] === 'GET'){
             if(recivedData["body"] == "usernames"){
-                dispatcher(get_username_list());
+                dispatcher(this.get_username_list());
             } 
             else if(recivedData["body"] == "tasks"){
                 dispatcher(this.get_tasks_list());
             }
-            else if(recivedData["body"].usernamae){
-                dispatcher(get_task(recivedData["body"].username, recivedData["body"].title));
+            else{
+                dispatcher(this.get_tasks_list(recivedData["body"]));
             }
         } 
         else if(recivedData["d"].method === 'POST' ){

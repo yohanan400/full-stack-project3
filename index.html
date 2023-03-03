@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<title>Login/Register</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<script src="register.js"></script>
+	<script src="index.js"></script>
 	<script src="db_api.js"></script>
 	<script src="server.js"></script>
 	<script src="network.js"></script>
@@ -45,10 +45,10 @@
 		<div id="todo" style="display: none;">
 			<h2>Todo List</h2>
 			<ul id="todoList">
-				<li>Item 1</li>
-				<li>Item 2</li>
-				<li>Item 3</li>
 			</ul>
+            <input type="text" id="title" placeholder="title">
+            <input type="text" id="task" placeholder="task">
+            <input type="button" onclick="add_task()" value="add task"></button>
 		</div>
 	</div>
 
@@ -66,17 +66,6 @@
 			loginForm.style.display = "block";
 			registerForm.style.display = "none";
 			todo.style.display = "none";
-		}
-
-		
-
-		function login() {
-			// Code to handle login request
-			alert("Login request sent");
-
-			// Show the todo list
-			loginForm.style.display = "none";
-			todo.style.display = "block";
 		}
 	</script>
 </body>
